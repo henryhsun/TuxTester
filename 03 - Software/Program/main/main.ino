@@ -4,8 +4,10 @@
 // -----------------------------------------
 int testSpeed = 255; // enter value between 0 and 255
 int testCycles = 3; // enter total cycles for testing
+int dutyPercent = 80; // enter duty percentage between 1 and 100, higher for lower loads, lower for high loads
+
 // ------------------------------------------
-// MAT TESTER MAIN CODE, 50% duty cycle
+// MAT TESTER MAIN CODE
 // ------------------------------------------
 
 // include & libraries
@@ -39,6 +41,7 @@ const bool released = HIGH;
 // timer
 unsigned long startTime = 0;
 unsigned long duration = 0;
+float delayMultiplier = (100.0/dutyPercent) - 1.0;
 
 // soft reset queue
 bool finished = false;
@@ -194,7 +197,7 @@ void test()
         }
         stop();
         duration = millis() - startTime;        // how long it ran
-        delay(duration);                   // pause based on duty amount
+        delay(duration*delayMultiplier);                   // pause based on duty amount
 
         startTime = millis();
         while(digitalRead(limit1) != pressed)
@@ -205,7 +208,7 @@ void test()
         count++;
         stop();
         duration = millis() - startTime;        // how long it ran
-        delay(duration);                        // pause based on duty amount
+        delay(duration*delayMultiplier);                        // pause based on duty amount
       }
       stop();
       finished = true;
