@@ -184,9 +184,9 @@ void test()
         lcd.print("test cycles: ");
         lcd.setCursor(0,1);
         lcd.print(count + 1);
-        lcd.setCursor(4,1);
+        lcd.setCursor(5,1);
         lcd.print("/");
-        lcd.setCursor(6,1);
+        lcd.setCursor(7,1);
         lcd.print(testCycles*cumulativeCycles);
 
         startTime = millis(); // timer for duty cycle
