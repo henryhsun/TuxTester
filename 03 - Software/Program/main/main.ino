@@ -46,7 +46,7 @@ float delayMultiplier = (100.0/dutyPercent) - 1.0;
 // soft reset queue
 bool finished = false;
 
-// function prototypes
+// function delcarations
 void calibrate();
 void calibrateMessage();
 void forward(int speed);
@@ -57,15 +57,15 @@ void test();
 void complete();
 
 // -------------------------------
-// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+// xxxxxxxxx program xxxxxxxxxxxxx
 // -------------------------------
 void setup() 
 {
 Serial.begin(9600); // Don't forget this bruh
 
-delay(200); //try to prevent cursed text from spawning
+delay(200); // prevent cursed text from spawning
 lcd.init();      // initialize the lcd 
-lcd.backlight(); // Turn on  Backlight
+lcd.backlight(); // turn on backlight
 lcd.clear();
 
  //pinModes
@@ -91,7 +91,7 @@ calibrate(); // calibrate actuator position
 
 test(); // testing using parameters
 
-complete(); // finished screen
+complete(); // finished routine (flash LCD on/off)
 }
 
 //------------
